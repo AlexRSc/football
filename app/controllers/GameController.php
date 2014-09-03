@@ -28,6 +28,33 @@ class GameController extends BaseController{
         return View::make('game.lists')-> with('game', $game)->with('tipp', $tipp);
     }
     
+    public function update()
+    {
+        $game=new Game();
+        $new_game = array(
+            'week_name' => Input::get('week_name'), 
+            'period_start'   => Input::get('period_start'), 
+            'period_end'  => Input::get('period_end') 
+        );
+        
+        $rules = array(
+            'week_name' =>  'required',
+            'period_start'   =>  'required',
+            'period_end'  =>  'required'
+        );
+        $v = Validator::make($new_game, $rules);
+        if($v->fails()) {
+            return Redirect::action('UserController@index')
+                    ->withErrors($v->messages());
+        }
+        $game->week_name=$new_game['week_name'];
+        $game->period_start=$new_game['period_start'];
+        $game->period_end=$new_game['period_end'];
+        $game->save();
+        
+        return Redirect::action('UserController@index');
+    }
+    
     public function results($id)
     {
         $game=Game::find($id);

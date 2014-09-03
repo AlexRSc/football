@@ -65,10 +65,36 @@
         <option value='New Orleans Saints'>New Orleans Saints</option></br>
         <option value='Tampa Bay Buccaneers'>Tampa Bay Buccaneers</option></br>
 </td>
-<td><input type="checkbox" name="winnerteam[]" value=hometeam[]</td>
+        @if((isset($day[$i])))
+        @if(($day[$i]->winnerteam)==($day[$i]->hometeam))
+        <td><input type="checkbox" name="winnerteam[]" value=hometeam[] checked></td>        
+        @endif      
+        @endif
+        @if((isset($day[$i])))
+        @if(($day[$i]->winnerteam)!=($day[$i]->hometeam))
+        <td><input type="checkbox" name="winnerteam[]" value=hometeam[]></td>
+        @endif
+        @endif
+        @if((!isset($day[$i])))
+        <td><input type="checkbox" name="winnerteam[]" value=hometeam[]></td>
+        @endif
+
+        
 <td>vs</td> 
-<td><input type="checkbox" name="winnerteam[]" value=guestteam[]</td>
-<td><select name="guestteam[]">
+        @if((isset($day[$i])))
+        @if(($day[$i]->winnerteam)==($day[$i]->guestteam))
+        <td><input type="checkbox" name="winnerteam[]" value=guestteam[] checked></td>
+        @endif
+        @endif
+        @if((isset($day[$i])))
+        @if(($day[$i]->winnerteam)!=($day[$i]->guestteam))
+        <td><input type="checkbox" name="winnerteam[]" value=guestteam[]></td>
+        @endif
+        @endif
+        @if((!isset($day[$i])))
+        <td><input type="checkbox" name="winnerteam[]" value=guestteam[]></td>
+        @endif
+        <td><select name="guestteam[]">
         @if((isset($day[$i])))
         <option value='{{$day[$i]->guestteam}}' selected>{{$day[$i]->guestteam}}</option></br>
         @endif

@@ -84,7 +84,7 @@ public function save($id)
         $day->quote_guest=$quote_guest[$i];
         $day->guestteam=$guestteam[$i];
         $day->week_id=$id;
-        if (($game->status=='deadline-over')&&$winnerSize=='12'&&(($winnerteam[$i]=$hometeam[$i])||($winnerteam[$i]=$guestteam[$i])))
+        if ($winnerSize=='12'&&(($winnerteam[$i]=$hometeam[$i])||($winnerteam[$i]=$guestteam[$i])))
         {
             $day->winnerteam=$winnerteam[$i];
         }
@@ -103,7 +103,7 @@ public function save($id)
         $day[$i]->quote_guest=$quote_guest[$i];
         $day[$i]->guestteam=$guestteam[$i];
         $day[$i]->week_id=$id;
-        if ($winnerSize=='12'&&(($winnerteam[$i]=$hometeam[$i])||($winnerteam[$i]=$guestteam[$i])))
+        if (($winnerSize==12)&&(($winnerteam[$i]==$hometeam[$i])||($winnerteam[$i]==$guestteam[$i])))
         {
             $day[$i]->winnerteam=$winnerteam[$i];
         }
