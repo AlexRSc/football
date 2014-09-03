@@ -73,6 +73,7 @@ public function save($id)
     $winnerSize = sizeOf($winnerteam);
     $loopSize = sizeOf($hometeam);
     $jackpot = Input::get('jackpot');
+    $winner = Input::get('Winner');
     
     if(sizeOf($day)!=12)
     {
@@ -111,8 +112,12 @@ public function save($id)
     }
     }
     $game->jackpot=$jackpot;
+    if(isset($winner))
+    {
+        $game->Winner=$winner;
+    }
     $game->save();
-return Redirect::action('GameController@lists');
+    return Redirect::action('GameController@lists');
     
     
 }

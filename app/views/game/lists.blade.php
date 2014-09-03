@@ -26,8 +26,7 @@
     <td>{{$a->period_end}}</td>
     <td>{{$a->counter}}</td>
     <td>{{$a->jackpot}}</td>
-       <td>
-           @if($a->status=='freigeschaltet')
+       <td>@if($a->status=='freigeschaltet')
         {{link_to_action('TippController@submit', 
                     'Tipp!', array($a->id));}}
            @endif

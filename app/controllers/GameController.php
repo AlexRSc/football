@@ -50,6 +50,7 @@ class GameController extends BaseController{
         $game->week_name=$new_game['week_name'];
         $game->period_start=$new_game['period_start'];
         $game->period_end=$new_game['period_end'];
+        $game->status= 'nicht-freigeschaltet';
         $game->save();
         
         return Redirect::action('UserController@index');
