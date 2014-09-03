@@ -80,11 +80,12 @@ public function save($id)
         $tipp->winnerteam=$winnerteam[$i];
         $tipp->week_id=$id;
         $tipp->user_id=Auth::user()->id;
+        
+        $game->counter=$game->counter+1;
+        $game->save();
         $tipp->save();
     }
     
-    $game->counter=$game->counter+1;
-    $game->save();
     }
     else
     {
