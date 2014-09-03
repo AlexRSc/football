@@ -57,7 +57,7 @@
         @endif
         @endif
     </td>
-    <td></td>
+    <td>{{$a->Winner}}</td>
         
         </tr>
         

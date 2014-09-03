@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => '178.62.150.67',
 			'database'  => 'my_database',
-			'username'  => 'root',
-			'password'  => 'pewpew',
+			'username'  => 'forge',
+			'password'  => 'i7NOlZh6KxmsQQzXaUJk',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -78,7 +78,7 @@ return array(
 			'driver'   => 'sqlsrv',
 			'host'     => 'localhost',
 			'database' => 'database',
-			'username' => 'root',
+			'username' => 'forge',
 			'password' => '',
 			'prefix'   => '',
 		),
