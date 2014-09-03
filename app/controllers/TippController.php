@@ -79,12 +79,12 @@ public function save($id)
         $tipp=new Tipp();
         $tipp->winnerteam=$winnerteam[$i];
         $tipp->week_id=$id;
-        $tipp->user_id=Auth::user()->id;
-        
-        $game->counter=$game->counter+1;
-        $game->save();
+        $tipp->user_id=Auth::user()->id;        
         $tipp->save();
     }
+    
+        $game->counter=$game->counter+1;
+        $game->save();
     
     }
     else
