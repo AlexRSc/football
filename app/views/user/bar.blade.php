@@ -12,12 +12,10 @@
     <input type="submit" name="login" value=Login class="btn btn-primary"/>
     </div>
     <div style="float: right;  margin-right: 9em; width: 8em; margin-top: 1em">
-    {{ $errors->first('password', '<p class="error">:message</p>') }}
     {{ Form::password('password') }}
     {{ Form::hidden('back', URL::previous() ) }}
     </div>
     <div style="float: right; margin-right: 1em; margin-top: 1em">
-    {{ $errors->first('username', '<p class="error">:message</p>') }}
     {{ Form::text('username') }}
     </div>
 {{ Form::close() }}

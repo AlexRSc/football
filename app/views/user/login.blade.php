@@ -48,7 +48,6 @@
 @endif
 @endfor
 @endif
-@stop    
 @elseif ((Auth::check())&&(Auth::user()->status=='nicht-freigeschaltet'))
 <h1>   .  </h1>
 <h1> Waiting for Approval from Admin </h1>
@@ -85,3 +84,4 @@
     {{ Form::close() }}
  
     @endif
+@stop    
