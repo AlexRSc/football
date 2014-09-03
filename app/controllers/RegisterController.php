@@ -29,7 +29,7 @@ class RegisterController extends BaseController{
         $v = Validator::make($new_user, $rules);
         if($v->fails()) {
             return Redirect::action('UserController@index')
-                    ->withErrors($v->messages());
+                    ->withErrors($v)->withInput();
         }
         else
         {

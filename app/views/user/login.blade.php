@@ -7,6 +7,7 @@
 {{ Form::open(array('url' => action("NewsController@save"), 'method' => 'POST')) }}
 
 
+
 <p>{{ Form::label('title', 'Title') }}</p>
 {{ $errors->first('title', '<p class="alert alert-danger">:message<a class="close" data-dismiss="alert" href="#">&times;</a></p>') }}
 <p>{{ Form::text('title') }}</p>
@@ -14,7 +15,7 @@
 
 <p>{{ Form::label('content', 'Content') }}</p>
 {{ $errors->first('content', '<p class="alert alert-danger">:message<a class="close" data-dismiss="alert" href="#">&times;</a></p>') }}
-<p>{{ Form::textarea('content') }}</p>
+<p>{{ Form::textarea('content', null, ['size' => '30x4']) }}</p>
 
 
 {{ Form::hidden('back', URL::previous() ) }}
@@ -26,7 +27,7 @@
 @for ($i=sizeOf($news)-1; $i>sizeOf($news)-20;$i--)
 @if($i>0)
 <div>
-    <h3>{{$news[$i]->title}}</h3>
+    <h4>{{$news[$i]->title}}</h4>
     <!--img src="../../img/line.gif"-->
     <p>{{Str::words($news[$i]->content);}}</p>
 

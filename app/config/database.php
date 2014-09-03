@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      =>  '178.62.150.67',
-                        'database'  => 'my_database',
+			'database'  => 'my_database',
                         'username'  => 'forge',
                         'password'  => 'i7NOlZh6KxmsQQzXaUJk',
 			'charset'   => 'utf8',

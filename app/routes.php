@@ -30,17 +30,20 @@ Route::get('/news/delete/{id}', 'NewsController@delete');
 Route::get('/game/lists', 'GameController@lists');
 Route::get('/tipp/submit/{id}', 'TippController@submit');
 Route::get('/tipp/show/{id}', 'TippController@show');
+Route::post('/game/update/{id}', 'TippController@save');
+Route::post('day/results_save/{id}', 'DayController@save_results');
 //admin
+Route::group(array('before' => 'admin'), function() {
 Route::get('/game/delete/{id}', 'GameController@delete');
 Route::get('/user/edit', 'UserController@edit');
 Route::get('/user/lock/{id}', 'UserController@lock');
 Route::get('user/unlock/{id}', 'UserController@unlock');
 Route::get('day/results/{id}', 'DayController@results');
-Route::post('day/results_save/{id}', 'DayController@save_results');
 Route::post('/day/update', 'DayController@update');
 Route::get('/game/create', 'GameController@create');
 Route::post('/game/update', 'GameController@update');
 Route::get('/game/status/{id}', 'GameController@status');
 Route::get('/game/create/{id}', 'DayController@create');
 Route::post('/game/save/{id}', 'DayController@save');
-Route::post('/game/update/{id}', 'TippController@save');
+});
+?>
