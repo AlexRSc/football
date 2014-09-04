@@ -23,32 +23,30 @@
     </div>
 {{ Form::close() }}    
     
-@if(sizeOf($news)!=0)    
-@for ($i=sizeOf($news)-1; $i>0;$i--)
-@if($i>0)
+
+@foreach ($news as $a)
 <div>
-    <h4>{{$news[$i]->title}}</h4>
+    <h4>{{$a->title}}</h4>
     <!--img src="../../img/line.gif"-->
-    <p>{{Str::words($news[$i]->content)}}</p>
+    <p>{{Str::words($a->content)}}</p>   
 
     <div class="row-fluid">
         <div class="span2 offset7">
-    Date: {{$news[$i]->created_at}}
+    Date: {{$a->created_at}}
         </div>
         <div class="span2">
-            Author: {{$news[$i]->author}}
+            Author: {{$a->author}}
         </div>
-        @if(Auth::user()->id==$news[$i]->user_id||Auth::user()->admin)
+        @if(Auth::user()->id==$a->user_id||Auth::user()->admin)
         <div>
-            {{link_to_action("NewsController@delete", 'Delete Message', array($news[$i]->id));}}
+            {{link_to_action("NewsController@delete", 'Delete Message', array($a->id));}}
         </div>
         @endif
         </div>
 
 </div>
-@endif
-@endfor
-@endif
+@endforeach
+
 @elseif ((Auth::check())&&(Auth::user()->status=='nicht-freigeschaltet'))
 <h1>   .  </h1>
 <h1> Waiting for Approval from Admin </h1>
