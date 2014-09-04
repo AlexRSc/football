@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
  <meta charset="UTF-8">
- <title>Football-App</title>
+ <title>AF-Predictor</title>
 {{ HTML::style('css/bootstrap.css') }}
 {{ HTML::script('js/jquery-1.10.2.js') }}
 {{ HTML::script('js/jquery.dataTables.js') }}
