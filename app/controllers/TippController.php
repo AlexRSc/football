@@ -72,7 +72,7 @@ public function save($id)
 
         }
     }
-    if($sizeTipp!=5)
+    if(($sizeTipp!=5)&&($loopSize==5))
     {
     for($i=0;$i<$loopSize;$i++)
     {

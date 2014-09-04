@@ -17,8 +17,11 @@
     <tbody>
 @for($i=0;$i<12;$i++)
 <tr>
-<td>
+<td>@if($day[$i]->quote_home>0)
+    +{{$day[$i]->quote_home}}
+    @else
     {{$day[$i]->quote_home}}
+    @endif
 </td>
 <td>{{$day[$i]->hometeam}}
 </td>
@@ -57,7 +60,11 @@
 </td>
 <td>{{$day[$i]->guestteam}}
 </td> 
-<td>{{$day[$i]->quote_guest}}
+<td>@if($day[$i]->quote_guest>0)
+    +{{$day[$i]->quote_guest}}
+    @else
+    {{$day[$i]->quote_guest}}
+    @endif
 </td>
 </tr>
 @endfor

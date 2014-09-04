@@ -10,12 +10,12 @@
 
 <p>{{ Form::label('title', 'Title') }}</p>
 {{ $errors->first('title', '<p class="alert alert-danger">:message<a class="close" data-dismiss="alert" href="#">&times;</a></p>') }}
-<p>{{ Form::text('title') }}</p>
+<p>{{ Form::text('title', 'Max 128') }}</p>
 
 
 <p>{{ Form::label('content', 'Content') }}</p>
 {{ $errors->first('content', '<p class="alert alert-danger">:message<a class="close" data-dismiss="alert" href="#">&times;</a></p>') }}
-<p>{{ Form::textarea('content', null, ['size' => '30x4']) }}</p>
+<p>{{ Form::textarea('content', 'Max 1000', ['size' => '30x4']) }}</p>
 
 
 {{ Form::hidden('back', URL::previous() ) }}
@@ -24,12 +24,12 @@
 {{ Form::close() }}    
     
 @if(sizeOf($news)!=0)    
-@for ($i=sizeOf($news)-1; $i>sizeOf($news)-20;$i--)
+@for ($i=sizeOf($news)-1; $i>0;$i--)
 @if($i>0)
 <div>
     <h4>{{$news[$i]->title}}</h4>
     <!--img src="../../img/line.gif"-->
-    <p>{{Str::words($news[$i]->content);}}</p>
+    <p>{{Str::words($news[$i]->content)}}</p>
 
     <div class="row-fluid">
         <div class="span2 offset7">
@@ -44,7 +44,7 @@
         </div>
         @endif
         </div>
-<hr>
+
 </div>
 @endif
 @endfor

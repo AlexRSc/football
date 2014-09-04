@@ -7,7 +7,7 @@
             <th>Week Name</th>
             <th>Start</th>
             <th>Tipp Deadline</th>
-            <th>Tipps sumbitted</th>
+            <th>Tipps submitted</th>
             <th>Jackpot</th>
             <th>Action</th>
             @if(Auth::check() && Auth::user()->admin)
