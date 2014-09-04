@@ -12,11 +12,11 @@
     <input type="submit" name="login" value=Login class="btn btn-primary"/>
     </div>
     <div style="float: right;  margin-right: 9em; width: 8em; margin-top: 1em">
-    {{ Form::password('password') }}
+    {{ Form::password('password', array('placeholder' => 'Password')) }}
     {{ Form::hidden('back', URL::previous() ) }}
     </div>
     <div style="float: right; margin-right: 1em; margin-top: 1em">
-    {{ Form::text('username') }}
+    {{ Form::text('username', 'Username') }}
     </div>
 {{ Form::close() }}
 @endif
