@@ -13,7 +13,7 @@
 <body>
 <div class="navbar navbar-fixed-top" ng-app="football.app">
     <div class="navbar-inner">
-        {{link_to_action('UserController@index', 'Football-App',array(),array("class"=>"brand"));}}
+        {{link_to_action('UserController@index', 'AF-Predictor',array(),array("class"=>"brand"));}}
         <ul class="nav">
             @if (Auth::check() && Auth::user()->admin)
             <li>{{link_to_action('UserController@edit', 'User-Administration');}}</li>
@@ -33,8 +33,8 @@
                         <p>{{$message}}</p>
                      @endforeach
                 </div>
-            @endif
-			@yield('content')
+                    @endif
+                    @yield('content')
 		</div>
 	</div>
 </body>

@@ -16,7 +16,7 @@
     {{ Form::hidden('back', URL::previous() ) }}
     </div>
     <div style="float: right; margin-right: 1em; margin-top: 1em">
-    {{ Form::text('username', 'Username') }}
+    {{ Form::text('username', NULL, array('placeholder' => 'Username')) }}
     </div>
 {{ Form::close() }}
 @endif

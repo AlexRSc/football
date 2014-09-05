@@ -10,12 +10,12 @@
 
 <p>{{ Form::label('title', 'Title') }}</p>
 {{ $errors->first('title', '<p class="alert alert-danger">:message<a class="close" data-dismiss="alert" href="#">&times;</a></p>') }}
-<p>{{ Form::text('title', 'Max 128') }}</p>
+<p>{{ Form::text('title', NULL, array('placeholder' => 'Title')) }}</p>
 
 
 <p>{{ Form::label('content', 'Content') }}</p>
 {{ $errors->first('content', '<p class="alert alert-danger">:message<a class="close" data-dismiss="alert" href="#">&times;</a></p>') }}
-<p>{{ Form::textarea('content', 'Max 1000', ['size' => '30x4']) }}</p>
+<p>{{ Form::textarea('content', NULL, array('placeholder' => 'Password'),['size' => '30x4']) }}</p>
 
 
 {{ Form::hidden('back', URL::previous() ) }}
