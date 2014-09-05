@@ -92,8 +92,6 @@ public function save($id)
         $day->save();
         
     }
-    $game->counter=$game->counter+1;
-    $game->save();
     }
     elseif(sizeOf($day)==12)
     {

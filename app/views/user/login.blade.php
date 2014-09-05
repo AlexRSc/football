@@ -65,7 +65,7 @@
         
         <p>{{Form::label('user','Username')}}</p>
         {{$errors->first('user', '<p class="alert alter-danger"><a class="close" data-dismiss="alert" href="#")>&times;</a></p>')}}
-        <p>{{ Form::text('user')}}</p>
+        <p>{{ Form::text('user', NULL, array('placeholder' => 'Unique Username'))}}</p>
         
         <p>{{Form::label('email','Email Address')}}</p>
         {{$errors->first('email', '<p class="alert alter-danger"><a class="close" data-dismiss="alert" href="#")>&times;</a></p>')}}
@@ -73,7 +73,7 @@
  
         <p>{{Form::label('password','Password')}}</p>
         {{$errors->first('password', '<p class="alert alter-danger"><a class="close" data-dismiss="alert" href="#")>&times;</a></p>')}}
-        <p>{{ Form::password('password') }}</p>
+        <p>{{ Form::password('password', array('placeholder' => 'At least 6 characters')) }}</p>
  
         <p>{{Form::label('cpassword','Confirm your Password')}}</p>
         {{$errors->first('cpassword', '<p class="alert alter-danger"><a class="close" data-dismiss="alert" href="#")>&times;</a></p>')}}
