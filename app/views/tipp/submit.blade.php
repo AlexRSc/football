@@ -37,7 +37,7 @@
     @endif
     @endif
     @if(!isset($tipp[$b])&&($b==4))
-    <input type="checkbox" name="winnerteam[]" value='{{$day[$i]->guestteam}}'>    
+    <input type="checkbox" name="winnerteam[]" value='{{$day[$i]->hometeam}}'>    
     @endif
     @endfor
 </td>
