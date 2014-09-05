@@ -1,6 +1,5 @@
 @extends('layout.layout')
 @section('content')
-<h1>.</h1>
 <div class="span11">
     <table class="table table-bordered">
     <thead><tr>

@@ -1,6 +1,5 @@
 @extends('layout.layout')
 @section('content')
-    <h1>   .  </h1>
 {{ Form::open(array('url' => action("GameController@update"), 'method' => 'POST')) }}
 
 <p>{{ Form::label('week_name', 'Title of the Week') }}</p>

@@ -29,7 +29,8 @@ class RegisterController extends BaseController{
         $v = Validator::make($new_user, $rules);
         if($v->fails()) {
             return Redirect::action('UserController@index')
-                    ->withErrors($v)->withInput();
+                    ->withErrors($v)->withInput()->with('messages', 
+                            array(trans("messages.wrong_registration_data")));
         }
         else
         {
@@ -43,7 +44,7 @@ class RegisterController extends BaseController{
             $user -> save();
             
             return Redirect::action('UserController@index')
-                    ->withMessage('Registration Succesfull!');
+                    ->with('messages', array(trans('messages.registration_succesfull')));
         }
     }
 }

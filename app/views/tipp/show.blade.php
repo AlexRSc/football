@@ -1,7 +1,6 @@
 @extends('layout.layout')
 @section('content')
-    <h1>   .  </h1>
-    {{ Form::open(array('url' => action("DayController@save_results", array($game->id)),'method' => 'POST')) }}
+    {{ Form::open(array('url' => action("GameController@lists"),'method' => 'GET')) }}
     <h2>{{$game->week_name}}</h2>
     <div class="span11">
     <table class="table table-bordered">
@@ -32,7 +31,7 @@
             
     {{ Form::hidden('back', URL::previous() ) }}
     <div class="btn-group">
-    {{ Form::submit('Save',['class' => 'btn btn-primary ']) }}
+    {{ Form::submit('Back',['class' => 'btn btn-primary ']) }}
     </div>
     {{ Form::close() }}    
 @stop

@@ -1,6 +1,5 @@
 @extends('layout.layout')
 @section('content')
-<h1>   .  </h1>
 {{ Form::open(array('url' => action("DayController@save", array($game->id)),'method' => 'POST')) }}
 
 <h1 style='max-height:300px'> {{$game->week_name}} </h1>

@@ -1,7 +1,6 @@
 @extends('layout.layout')
 @section('content')
 
-<h1>   .  </h1>
 @if(Auth::user()->admin)
 <h1 style='max-height:300px'> Hier kannst du die Leute freischalten </h1>
 <div class="span11">

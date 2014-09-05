@@ -44,7 +44,7 @@ class GameController extends BaseController{
         );
         $v = Validator::make($new_game, $rules);
         if($v->fails()) {
-            return Redirect::action('UserController@index')
+            return Redirect::action('GameController@create')->withInput()
                     ->withErrors($v->messages());
         }
         $game->week_name=$new_game['week_name'];

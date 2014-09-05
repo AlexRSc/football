@@ -11,7 +11,7 @@
 {{ HTML::script('js/jquery.dumbformstate-1.0.1.js') }}
 </head>
 <body>
-<div class="navbar navbar-fixed-top" ng-app="football.app">
+<div class="navbar navbar-static-top" ng-app="football.app">
     <div class="navbar-inner">
         {{link_to_action('UserController@index', 'AF-Predictor',array(),array("class"=>"brand"));}}
         <ul class="nav">

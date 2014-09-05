@@ -26,16 +26,19 @@ public function login()
    "password" => Input::get("password")
 ];
 if(Auth::attempt($credentials)) {
-   return Redirect::intended("/")->withMessage('Login succesfull');
+   return Redirect::intended("/")
+           ->with('messages', array(trans('messages.login_succesfull')));
 } else {
-   return Redirect::action('UserController@index')->withMessage('Login failed');
+   return Redirect::action('UserController@index')
+           ->with('messages', array(trans('messages.login_failed')));
 }
 }
 
 public function logout()
 {
     Auth::logout();
-    return Redirect::action('UserController@index')->withMessage('Loged out!');
+    return Redirect::action('UserController@index')
+            ->with('messages', array(trans('messages.logout')));
 }
 
 public function edit()
