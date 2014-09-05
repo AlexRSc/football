@@ -45,7 +45,8 @@ class GameController extends BaseController{
         $v = Validator::make($new_game, $rules);
         if($v->fails()) {
             return Redirect::action('GameController@create')->withInput()
-                    ->withErrors($v->messages());
+                    ->withErrors($v->messages())
+                    ->with('messages', array(trans('messages.weekcreationfail')));
         }
         $game->week_name=$new_game['week_name'];
         $game->period_start=$new_game['period_start'];
@@ -53,7 +54,7 @@ class GameController extends BaseController{
         $game->status= 'nicht-freigeschaltet';
         $game->save();
         
-        return Redirect::action('UserController@index');
+        return Redirect::action('GameController@lists')->with('messages', array(trans('messages.weekcreated')));
     }
     
     public function results($id)
@@ -78,6 +79,41 @@ class GameController extends BaseController{
     public function create()
     {
         return View::make('game.create');   
+    }
+    
+    public function save_edit($id)
+    {
+        $game = Game::find($id);
+        return View::make('game.edit')->with('game', $game);
+    }
+    
+    public function game_save($id)
+    {
+        $game = Game::find($id);
+        $new_game = array(
+            'week_name'     => Input::get('week_name'), 
+            'period_start'  => Input::get('period_start'), 
+            'period_end'    => Input::get('period_end') 
+        );
+        
+        $rules = array(
+            'week_name'     =>  'required',
+            'period_start'  =>  'required',
+            'period_end'    =>  'required'
+        );
+        $v = Validator::make($new_game, $rules);
+        if($v->fails()) {
+            return Redirect::action('GameController@save_edit', array($id))
+                    ->withInput()->withErrors($v->messages())
+                    ->with('messages', array(trans('messages.weekeditfail')));
+        }
+        $game->week_name=$new_game['week_name'];
+        $game->period_start=$new_game['period_start'];
+        $game->period_end=$new_game['period_end'];
+        $game->status= 'nicht-freigeschaltet';
+        $game->save();
+        
+        return Redirect::action('UserController@index')->with('messages', array(trans('messages.weekedited')));
     }
     
     

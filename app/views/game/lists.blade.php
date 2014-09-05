@@ -20,7 +20,13 @@
         @foreach ($game as $a)
         @if ($a->status!='nicht-freigeschaltet'||(Auth::check() && Auth::user()->admin))
         <tr>
-    <td>{{$a->week_name}}</td>
+    <td>@if (Auth::check() && Auth::user()->admin)
+        {{link_to_action('GameController@save_edit', 
+                    $a->week_name, array($a->id));}}
+        @else
+        {{$a->week_name}}
+        @endif
+    </td>
     <td>{{$a->period_start}}</td>
     <td>{{$a->period_end}}</td>
     <td>{{$a->counter}}</td>

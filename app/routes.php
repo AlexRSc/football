@@ -42,6 +42,8 @@ Route::get('day/results/{id}', 'DayController@results');
 Route::post('/day/update', 'DayController@update');
 Route::get('/game/create', 'GameController@create');
 Route::post('/game/update', 'GameController@update');
+Route::get('/game/save_edit/{id}', 'GameController@save_edit');
+Route::post('/game/game_save/{id}', 'GameController@game_save');
 Route::get('/game/status/{id}', 'GameController@status');
 Route::get('/game/create/{id}', 'DayController@create');
 Route::post('/game/save/{id}', 'DayController@save');

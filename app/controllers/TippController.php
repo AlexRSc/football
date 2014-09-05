@@ -79,7 +79,7 @@ class TippController extends BaseController {
                 $already_tipp[$i]->save();
             }
         }
-        return Redirect::action('GameController@lists');
+        return Redirect::action('GameController@lists')->with('messages', array(trans('messages.tippsubmitted')));
     }
 
 }
