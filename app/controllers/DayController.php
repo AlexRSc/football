@@ -12,17 +12,27 @@ public function create($id)
 public function results($id)
 {   $game=Game::find($id);
     $day=Day::where('week_id', $id)->get();
-    $tipp=Tipp::where('week_id', $id)
-            ->where('evaluation', 1)->get();
+    $tipp=Tipp::where('week_id', $id)->get();
+    $user=User::all();
     $loopSize = sizeOf($tipp);
-    $amount_user=sizeOf(User::all());
-    foreach ($tipp as $a)
+    foreach($tipp as $c)
     {
-        
-        
+        $c->evaluation=0;
+        $c->save();
+    }
+    foreach($day as $a)
+    {
+        foreach($tipp as $b)
+        {
+            if ($b->winnerteam == $a->winnerteam)
+            {
+                $b->evaluation=1;
+                $b->save();
+            }
+        }
     }
     return View::make('Day.results')->with('tipp', $tipp)->with('game', $game)
-        ->with('day', $day);
+        ->with('day', $day)->with('user', $user);
 }
 
 public function save_results($id)
@@ -114,6 +124,10 @@ public function save($id)
     if(isset($winner))
     {
         $game->Winner=$winner;
+    }
+    if($winnerSize=12)
+    {
+        $game->status='results';
     }
     $game->save();
     return Redirect::action('GameController@lists');
