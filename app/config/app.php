@@ -30,7 +30,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Application Timezone
+	| Application Timezonei7NOlZh6KxmsQQzXaUJk
 	|--------------------------------------------------------------------------
 	|
 	| Here you may specify the default timezone for your application, which
