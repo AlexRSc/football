@@ -14,7 +14,7 @@
 
 <p>{{ Form::label('content', 'Content') }}</p>
 {{ $errors->first('content', '<p class="alert alert-danger">:message<a class="close" data-dismiss="alert" href="#">&times;</a></p>') }}
-<p>{{ Form::textarea('content', NULL, array('placeholder' => 'Password'),['size' => '30x4']) }}</p>
+<p>{{ Form::textarea('content', NULL, array('placeholder' => 'Content, Max 1000 characters'),['size' => '30x4']) }}</p>
 
 
 {{ Form::hidden('back', URL::previous() ) }}
