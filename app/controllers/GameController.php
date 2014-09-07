@@ -4,7 +4,13 @@ class GameController extends BaseController{
     public function lists()
     {
         $game=Game::all();
-        $tipp=Tipp::all();
+        foreach ($game as $a)
+        {
+        $i=0;    
+        $tipp=Tipp::where('week_id', $a->id)->get();
+        $a->counter=sizeOf($tipp)/5;
+        $a->save();
+        }
         $datetime=new DateTime();
         $time=Game::where('period_end', '<=', $datetime)
                 ->get();
@@ -25,7 +31,7 @@ class GameController extends BaseController{
                 $b->save();
             }
         }
-        return View::make('game.lists')-> with('game', $game)->with('tipp', $tipp);
+        return View::make('game.lists')-> with('game', $game);
     }
     
     public function update()

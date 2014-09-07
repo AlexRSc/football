@@ -68,8 +68,6 @@ class TippController extends BaseController {
                 $tipp->save();
             }
 
-            $game->counter = $game->counter + 1;
-            $game->save();
         } else {
             for ($i = 0; $i < $loopSize; $i++) {
 

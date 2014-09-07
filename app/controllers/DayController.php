@@ -64,8 +64,7 @@ public function save_results($id)
             }   
         }
     }
-    $game->status='results';
-    $game->save();
+    
     
     return Redirect::action('GameController@lists');
     }    
@@ -115,7 +114,6 @@ public function save($id)
         if ($winnerSize=='12'&&(($winnerteam[$i]==$hometeam[$i])||($winnerteam[$i]==$guestteam[$i])))
         {            
             $day[$i]->winnerteam=$winnerteam[$i];
-            echo $winnerteam[$i];
         }
         $day[$i]->save();
     }
@@ -125,7 +123,7 @@ public function save($id)
     {
         $game->Winner=$winner;
     }
-    if($winnerSize=12)
+    if($winnerSize=12 && ($game->status=='deadline-over'))
     {
         $game->status='results';
     }
