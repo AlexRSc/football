@@ -142,7 +142,7 @@
     </table>
 <p><td><strong>Jackpot</strong></td></p>
 <p><td><input type="text" name="jackpot" value="{{$game->jackpot}}"> </td></p>
-@if($game->status=='deadline-over')
+@if($game->status=='deadline-over'||$game->status=='results')
 <p><td><strong>Winner of the Week</strong></td></p>
 <p><td><input type="text" name="Winner" value="{{$game->winner}}"> </td></p>
 @endif
