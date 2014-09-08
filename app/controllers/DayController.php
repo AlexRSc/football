@@ -123,13 +123,8 @@ public function save($id)
     {
         $game->Winner=$winner;
     }
-    if($winnerSize=12 && ($game->status=='deadline-over'))
-    {
-        $game->status='results';
-    }
+
     $game->save();
-    return Redirect::action('GameController@lists');
-    
-    
+    return Redirect::action('GameController@lists'); 
 }
 }
