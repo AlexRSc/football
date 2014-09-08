@@ -11,9 +11,9 @@
             <th>Action</th>
             @if(Auth::check() && Auth::user()->admin)
             <th>Admin Action</th>
+            @endif
             <th>State</th>
             <th>Winner</th>
-            @endif
             </tr>
     </thead>
     <tbody>
