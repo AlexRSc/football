@@ -16,10 +16,6 @@
         <tbody>
             @foreach ($day as $a)
             <tr>
-                +{{$day[$i]->quote_home}}
-                @else
-                {{$day[$i]->quote_home}}
-                @endif
                 @if($a->hometeam==$a->winnerteam)
                 <td BGCOLOR="#00ff00">{{$a->hometeam}}</td>
                 <td BGCOLOR="#00ff00">{{$a->home_result}}</td>
@@ -44,13 +40,13 @@
                 @else
                 <td BGCOLOR='RED'>{{$a->quote_home}}</td>
                 @endif
-                @if($a->quote_guest>0)
-                <td BGCOLOR="#00ff00">+{{$a->guestteam}}</td>
-                @else
                 <td BGCOLOR="#00ff00">{{$a->guestteam}}</td>
-                @endif
                 <td BGCOLOR="#00ff00">{{$a->guest_result}}</td>
+                @if($a->quote_guest>0)
+                <td BGCOLOR="#00ff00">+{{$a->quote_guest}}</td>
+                @else
                 <td BGCOLOR="#00ff00">{{$a->quote_guest}}</td>
+                @endif
                 @endif
             </tr>   
             @endforeach
