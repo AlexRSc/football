@@ -52,8 +52,6 @@
             @endforeach
         </tbody>
     </table>
-</div>
-<div class="span11">
     <h2> User Ranking! </h2>
     <table class="table table-bordered">
         <thead><tr>
@@ -114,8 +112,6 @@
             @endforeach
         </tbody>
     </table>
-</div>
-<div class="span11">
     <h2>Tipps submitted </h2>
 
     <table class="table table-bordered">
