@@ -33,11 +33,13 @@ Route::get('/tipp/show/{id}', 'TippController@show');
 Route::post('/game/update/{id}', 'TippController@save');
 Route::post('day/results_save/{id}', 'DayController@save_results');
 Route::get('day/results/{id}', 'DayController@results');
+Route::get('game/total', 'GameController@total');
 //admin
 Route::group(array('before' => 'admin'), function() {
 Route::get('/game/delete/{id}', 'GameController@delete');
 Route::get('/user/edit', 'UserController@edit');
 Route::get('/user/lock/{id}', 'UserController@lock');
+Route::get('/game/results_state/{id}', 'GameController@status_results');
 Route::get('user/unlock/{id}', 'UserController@unlock');
 Route::post('/day/update', 'DayController@update');
 Route::get('/game/create', 'GameController@create');

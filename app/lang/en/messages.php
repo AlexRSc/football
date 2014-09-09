@@ -97,6 +97,7 @@ return array(
     'created' => "Created",
     'rp' => "Responsible Person",
     'start' => "Start",
+    'statusresults' => "Status changed to results",
     'end' => "End",
     'amount' => "Update Amount",
     'amount_approvedd' => "Amount approved",

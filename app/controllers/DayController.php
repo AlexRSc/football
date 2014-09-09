@@ -77,6 +77,8 @@ public function save($id)
     $guestteam = Input::get('guestteam');
     $quote_home = Input::get('quote_home');
     $quote_guest = Input::get('quote_guest');
+    $home_result = Input::get('home_result');
+    $guest_result = Input::get('guest_result');
     $winnerteam = Input::get('winnerteam');
     $day=Day::where('week_id', $id)->get();
     $winnerSize = sizeOf($winnerteam);
@@ -118,6 +120,25 @@ public function save($id)
         $day[$i]->save();
     }
     }
+    
+    if(sizeof($home_result)!=0)
+    {
+        for ($i=0; $i<sizeOf($home_result); $i++)
+        {   
+            $day[$i]->home_result=$home_result[$i];
+            $day[$i]->guest_result=$guest_result[$i];
+            if(($home_result[$i]+$quote_home[$i])>$guest_result[$i])
+            {    
+            $day[$i]->winnerteam=$hometeam[$i];
+            }
+            else
+            {
+            $day[$i]->winnerteam=$guestteam[$i];
+            }
+            $day[$i]->save();
+        }
+    }
+    
     $game->jackpot=$jackpot;
     if(isset($winner))
     {

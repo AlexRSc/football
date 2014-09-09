@@ -34,6 +34,26 @@ class GameController extends BaseController{
         return View::make('game.lists')-> with('game', $game);
     }
     
+    public function total()
+    {
+        $day=Day::all();
+        $user=User::all();
+        return View::make('game.total')->with('user', $user);
+    }
+    
+    public function status_results($id)
+    {
+        $game=Game::find($id);        
+        if($game->status='deadline-over')
+        {
+            $game->status='results';
+            $game->save();
+        }
+        
+        return Redirect::action('GameController@lists')->with('messages', array(trans('messages.statusresults')));
+        
+    }
+    
     public function update()
     {
         $game=new Game();

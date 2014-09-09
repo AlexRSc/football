@@ -20,6 +20,7 @@
             @endif
             @if (Auth::check()&&(Auth::user()->status!='nicht-freigeschaltet'))
             <li>{{link_to_action('GameController@lists', 'Season Weeks');}}</li>
+            <li>{{link_to_action('GameController@total', 'Seasons Ranking')}}</li>
             @endif
       </ul>
         @include('user.bar')

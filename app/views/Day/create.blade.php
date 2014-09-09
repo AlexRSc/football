@@ -8,9 +8,9 @@
     <thead><tr>
             <th>Spread HomeTeam</th>
             <th>HomeTeam</th>
-            <th></th>
-            <th>Winner</th>
-            <th></th>
+            <th>Home Result</th>
+            <th>vs</th>
+            <th>Guest Result</th>
             <th>GuestTeam</th>      
             <th>Spread GuestTeam</th>
             </tr>
@@ -20,10 +20,10 @@
 <tr>
 <td>
     @if((isset($day[$i])))
-    <input type="text" name="quote_home[]" value="{{$day[$i]->quote_home}}"> 
+    <input type="text" name="quote_home[]" value="{{$day[$i]->quote_home}}" style="width:50px;"> 
     @endif
     @if((!isset($day[$i])))
-    <input type="text" name="quote_home[]" value="Spread">
+    <input type="text" name="quote_home[]" value="Spread" style="width:50px;">
     @endif
     
 </td>
@@ -63,34 +63,24 @@
         <option value='Carolina Panthers'>Carolina Panthers</option></br>
         <option value='New Orleans Saints'>New Orleans Saints</option></br>
         <option value='Tampa Bay Buccaneers'>Tampa Bay Buccaneers</option></br>
-</td>
+        </td>   
+        <td>
         @if((isset($day[$i])))
-        @if(($day[$i]->winnerteam)==($day[$i]->hometeam))
-        <td><input type="checkbox" name="winnerteam[]" value='{{$day[$i]->hometeam}}' checked></td>        
-        @endif      
-        @endif
-        @if((isset($day[$i])))
-        @if(($day[$i]->winnerteam)!=($day[$i]->hometeam))
-        <td><input type="checkbox" name="winnerteam[]" value='{{$day[$i]->hometeam}}'></td>
-        @endif
+        <input type="text" name="home_result[]" value="{{$day[$i]->home_result}}" style="width:50px;"> 
         @endif
         @if((!isset($day[$i])))
-        <td><input type="checkbox" name="winnerteam[]" value="hometeam[$i]"></td>
-        @endif        
-<td>vs</td> 
+        <input type="text" name="home_result[]" value="Home Result" style="width:50px;">
+        @endif       
+        </td>
+        <td>vs</td> 
+        <td>
         @if((isset($day[$i])))
-        @if(($day[$i]->winnerteam)==($day[$i]->guestteam))
-        <td><input type="checkbox" name="winnerteam[]" value='{{$day[$i]->guestteam}}' checked></td>
-        @endif
-        @endif
-        @if((isset($day[$i])))
-        @if(($day[$i]->winnerteam)!=($day[$i]->guestteam))
-        <td><input type="checkbox" name="winnerteam[]" value='{{$day[$i]->guestteam}}'></td>
-        @endif
+        <input type="text" name="guest_result[]" value="{{$day[$i]->guest_result}}" style="width:50px;"> 
         @endif
         @if((!isset($day[$i])))
-        <td><input type="checkbox" name="winnerteam[]" value="guestteam[$i]"></td>
+        <input type="text" name="guest_result[]" value="Guest Result" style="width:50px;">
         @endif
+        </td>
         <td><select name="guestteam[]">
         @if((isset($day[$i])))
         <option value='{{$day[$i]->guestteam}}' selected>{{$day[$i]->guestteam}}</option></br>
@@ -130,10 +120,10 @@
 </td> 
 <td>
     @if((isset($day[$i])))
-    <input type="text" name="quote_guest[]" value="{{$day[$i]->quote_guest}}"> 
+    <input type="text" name="quote_guest[]" value="{{$day[$i]->quote_guest}}" style="width:50px;"> 
     @endif
     @if((!isset($day[$i])))
-    <input type="text" name="quote_guest[]" value="Spread">
+    <input type="text" name="quote_guest[]" value="Spread" style="width:50px;">
     @endif
 </td>
 </tr>
@@ -150,6 +140,11 @@
 
 {{ Form::hidden('back', URL::previous() ) }}
 <div class="btn-group">{{ Form::submit('Save',['class' => 'btn btn-primary ']) }}
+    @if($game->status=='deadline-over')
+    {{link_to_action('GameController@status_results', 'Status auf Results aendern!', $game->id, array("class" => "btn btn-danger"));}};
+    @endif
 </div>
-{{ Form::close() }}    
+
+    {{ Form::close() }}    
+
 @stop   
