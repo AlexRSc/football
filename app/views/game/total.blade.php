@@ -19,8 +19,12 @@
             <tr>
                 <td>{{$a->username}}</td>
                 @foreach($game as $b)
-                <td>{{sizeOf(Tipp::where('user_id', $a->id)->where('week_id', $b->id)
-                            ->where('evaluation', 1)->get())}}</td>
+                @for($c=5;$c>=0;$c--)
+                @if(sizeOf(Tipp::where('user_id', $a->id)->where('week_id', $b->id)
+                            ->where('evaluation', 1)->get())==$c)
+                <td>{{$c}}</td>
+                @endif
+                @endfor
                 @endforeach
                     
                 <td>{{$i}}</td>
