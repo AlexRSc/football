@@ -19,7 +19,7 @@
             <tr>
                 <td>{{$a->username}}</td>
                 @foreach($game as $b)
-                <td>{{sizeOf(tipp::where('user_id', $a->id)->where('week_id', $b->id)
+                <td>{{sizeOf(Tipp::where('user_id', $a->id)->where('week_id', $b->id)
                             ->where('evaluation', 1)->get())}}</td>
                 @endforeach
                     
