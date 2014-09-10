@@ -38,7 +38,8 @@ class GameController extends BaseController{
     {
         $day=Day::all();
         $user=User::all();
-        return View::make('game.total')->with('user', $user);
+        $game=Game::where('status', 'results')->get();
+        return View::make('game.total')->with('user', $user)->with('game', $game);
     }
     
     public function status_results($id)

@@ -2,10 +2,14 @@
 @section('content')
 {{ Form::open(array('url' => action("UserController@index"),'method' => 'GET')) }}
 <div class="span11">
+    <h2>This shows the amount of correct tipps per Week</h2>
 <table class="table table-bordered">
         <thead><tr>
                 <th>User</th>
-                <th>Correct Tipps</th>
+                @foreach ($game as $a)
+                <th>{{$a->week_name}}</th>
+                @endforeach
+                <th>Total Amount</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +18,11 @@
             @if(sizeOf(Tipp::where('user_id', $a->id)->where('evaluation', 1)->get())==$i)
             <tr>
                 <td>{{$a->username}}</td>
+                @foreach($game as $b)
+                <td>{{sizeOf(tipp::where('user_id', $a->id)->where('week_id', $b->id)
+                            ->where('evaluation', 1)->get())}}</td>
+                @endforeach
+                    
                 <td>{{$i}}</td>
             </tr>   
             @endif  
