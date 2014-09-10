@@ -2,7 +2,7 @@
 @section('content')
 {{ Form::open(array('url' => action("UserController@index"),'method' => 'GET')) }}
 <div class="span11">
-    <h2>This shows the amount of correct tipps per Week</h2>
+    <h2>This shows the amount of correct tipps</h2>
 <table class="table table-bordered">
         <thead><tr>
                 <th>User</th>
