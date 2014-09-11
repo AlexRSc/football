@@ -26,7 +26,7 @@ class TippController extends BaseController {
         $loopSize = sizeOf($winnerteam);
         $day = Day::where('week_id', $id)->get();
         $datetime = new DateTime();
-        $already_tipp = Tipp::where('user_id', Auth::user()->id)->get();
+        $already_tipp = Tipp::where('user_id', Auth::user()->id)->where('week_id', $id)->get();
         $sizeTipp = sizeOf($already_tipp);
         $game = Game::find($id);
         $time = Game::where('period_end', '<=', $datetime)
@@ -67,7 +67,6 @@ class TippController extends BaseController {
                 $tipp->user_id = Auth::user()->id;
                 $tipp->save();
             }
-
         } else {
             for ($i = 0; $i < $loopSize; $i++) {
 
