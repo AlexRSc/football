@@ -6,6 +6,7 @@
     <table class="table table-bordered">
     <thead><tr>
             <th>Home Team</th>
+            <th>Home Spread</th>
             <th>Guest Team</th>
             <th>Chosen Winner Team</th>
             <th>User</th>
@@ -18,10 +19,15 @@
     @if(($b->winnerteam==$a->hometeam)||($b->winnerteam==$a->guestteam))
     <tr>
     <td>{{$a->hometeam}}</td>
+    @if($a->quote_home>0)
+    <td>+{{$a->quote_home}}</td>
+    @else
+    <td>{{$a->quote_home}}</td>
+    @endif
     <td>{{$a->guestteam}}</td>
     <td>{{$b->winnerteam}}</td>
     <td>{{User::where('id', $b->user_id)->pluck('username');}}</td>
-    <td>{{$b->created_at}}</td>
+    <td>{{$b->updated_at}}</td>
     </tr>
     @endif
     @endforeach

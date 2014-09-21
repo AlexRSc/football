@@ -24,6 +24,7 @@ Route::get('register', function(){
 Route::post('/login', 'UserController@login');
 Route::get('/logout', 'UserController@logout');
 //user
+
 Route::post('/user/update', 'UserController@update');
 Route::post('/news/save', 'NewsController@save');
 Route::get('/news/delete/{id}', 'NewsController@delete');
@@ -34,6 +35,7 @@ Route::post('/game/update/{id}', 'TippController@save');
 Route::post('day/results_save/{id}', 'DayController@save_results');
 Route::get('day/results/{id}', 'DayController@results');
 Route::get('game/total', 'GameController@total');
+
 //admin
 Route::group(array('before' => 'admin'), function() {
 Route::get('/game/delete/{id}', 'GameController@delete');
