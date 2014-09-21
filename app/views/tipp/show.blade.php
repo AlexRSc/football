@@ -8,6 +8,7 @@
             <th>Home Team</th>
             <th>Home Spread</th>
             <th>Guest Team</th>
+            <th>Guest Spread</th>
             <th>Chosen Winner Team</th>
             <th>User</th>
             <th>Time</th>
@@ -25,6 +26,11 @@
     <td>{{$a->quote_home}}</td>
     @endif
     <td>{{$a->guestteam}}</td>
+    @if($a->quote_guest>0)
+    <td>+{{$a->quote_guest}}</td>
+    @else
+    <td>{{$a->quote_guest}}</td>
+    @endif
     <td>{{$b->winnerteam}}</td>
     <td>{{User::where('id', $b->user_id)->pluck('username');}}</td>
     <td>{{$b->updated_at}}</td>
