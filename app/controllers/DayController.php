@@ -17,8 +17,11 @@ public function results($id)
     $loopSize = sizeOf($tipp);
     foreach($tipp as $c)
     {
+        if($c->week_id!='4')
+        {
         $c->evaluation=0;
         $c->save();
+        }
     }
     foreach($day as $a)
     {
@@ -26,11 +29,9 @@ public function results($id)
         {
             if ($b->winnerteam == $a->winnerteam)
             {
-                if($b->week_id!='4')
-                {
                 $b->evaluation=1;
                 $b->save();
-                }
+                
             }
         }
     }
