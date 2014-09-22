@@ -33,7 +33,7 @@
     @endif
     <td>{{$b->winnerteam}}</td>
     <td>{{User::where('id', $b->user_id)->pluck('username');}}</td>
-    <td>{{$b->updated_at}}</td>
+    <td>{{$b->created_at}}</td>
     </tr>
     @endif
     @endforeach

@@ -26,8 +26,11 @@ public function results($id)
         {
             if ($b->winnerteam == $a->winnerteam)
             {
+                if($b->week_id!='4')
+                {
                 $b->evaluation=1;
                 $b->save();
+                }
             }
         }
     }
