@@ -96,7 +96,7 @@
     @if($a->hometeam=='Chicago Bears')
     {{ HTML::image('img/Bears.png') }}
     @endif
-    @if($a->hometeam=='Detriot Lions')
+    @if($a->hometeam=='Detroit Lions')
     {{ HTML::image('img/Lions.png') }}
     @endif
     @if($a->hometeam=='Green Bay Packers')
@@ -201,7 +201,7 @@
     @if($a->guestteam=='Chicago Bears')
     {{ HTML::image('img/Bears.png') }}
     @endif
-    @if($a->guestteam=='Detriot Lions')
+    @if($a->guestteam=='Detroit Lions')
     {{ HTML::image('img/Lions.png') }}
     @endif
     @if($a->guestteam=='Green Bay Packers')
@@ -308,7 +308,7 @@
     @if($a->hometeam=='Chicago Bears')
     {{ HTML::image('img/Bears.png') }}
     @endif
-    @if($a->hometeam=='Detriot Lions')
+    @if($a->hometeam=='Detroit Lions')
     {{ HTML::image('img/Lions.png') }}
     @endif
     @if($a->hometeam=='Green Bay Packers')
@@ -413,7 +413,7 @@
     @if($a->guestteam=='Chicago Bears')
     {{ HTML::image('img/Bears.png') }}
     @endif
-    @if($a->guestteam=='Detriot Lions')
+    @if($a->guestteam=='Detroit Lions')
     {{ HTML::image('img/Lions.png') }}
     @endif
     @if($a->guestteam=='Green Bay Packers')
@@ -603,7 +603,7 @@
     @if($b->winnerteam=='Chicago Bears')
     {{ HTML::image('img/Bears.png') }}
     @endif
-    @if($b->winnerteam=='Detriot Lions')
+    @if($b->winnerteam=='Detroit Lions')
     {{ HTML::image('img/Lions.png') }}
     @endif
     @if($b->winnerteam=='Green Bay Packers')
@@ -709,7 +709,7 @@
     @if($b->winnerteam=='Chicago Bears')
     {{ HTML::image('img/Bears.png') }}
     @endif
-    @if($b->winnerteam=='Detriot Lions')
+    @if($b->winnerteam=='Detroit Lions')
     {{ HTML::image('img/Lions.png') }}
     @endif
     @if($b->winnerteam=='Green Bay Packers')

@@ -110,7 +110,7 @@
     @if($b->winnerteam=='Chicago Bears')
     {{ HTML::image('img/Bears.png') }}
     @endif
-    @if($b->winnerteam=='Detriot Lions')
+    @if($b->winnerteam=='Detroit Lions')
     {{ HTML::image('img/Lions.png') }}
     @endif
     @if($b->winnerteam=='Green Bay Packers')

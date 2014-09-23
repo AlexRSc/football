@@ -100,7 +100,7 @@
     @if($day[$i]->hometeam=='Chicago Bears')
     {{ HTML::image('img/Bears.png') }}
     @endif
-    @if($day[$i]->hometeam=='Detriot Lions')
+    @if($day[$i]->hometeam=='Detroit Lions')
     {{ HTML::image('img/Lions.png') }}
     @endif
     @if($day[$i]->hometeam=='Green Bay Packers')
@@ -234,7 +234,7 @@
     @if($day[$i]->guestteam=='Chicago Bears')
     {{ HTML::image('img/Bears.png') }}
     @endif
-    @if($day[$i]->guestteam=='Detriot Lions')
+    @if($day[$i]->guestteam=='Detroit Lions')
     {{ HTML::image('img/Lions.png') }}
     @endif
     @if($day[$i]->guestteam=='Green Bay Packers')
