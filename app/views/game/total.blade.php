@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            @for ($i=30; $i>=0; $i--)
+            @for ($i=50; $i>=0; $i--)
             @foreach ($user as $a)
             @if(sizeOf(Tipp::where('user_id', $a->id)->where('evaluation', 1)->get())==$i)
             <tr>
