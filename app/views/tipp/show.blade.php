@@ -21,13 +21,13 @@
     @if(($b->winnerteam==$a->hometeam)||($b->winnerteam==$a->guestteam))
     <tr>     
     <td>{{$a->guestteam}}</td>
-    @if($a->quote_home>0)
+    @if($a->quote_guest>0)
     <td>+{{$a->quote_guest}}</td>
     @else
     <td>{{$a->quote_guest}}</td>
     @endif
     <td>{{$a->hometeam}}</td>
-    @if($a->quote_guest>0)
+    @if($a->quote_home>0)
     <td>+{{$a->quote_home}}</td>
     @else
     <td>{{$a->quote_home}}</td>
