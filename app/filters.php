@@ -19,7 +19,14 @@ App::before(function($request)
 
 App::after(function($request, $response)
 {
-	//
+        // Set common security headers
+        $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
+        $response->headers->set('X-Content-Type-Options', 'nosniff');
+        $response->headers->set('X-XSS-Protection', '1; mode=block');
+
+        if ($request->isSecure()) {
+                $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+        }
 });
 
 /*
