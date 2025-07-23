@@ -4,6 +4,7 @@
     <h1 style='max-height:300px'> This is the "Forum"! </h1>
 
 {{ Form::open(array('url' => action("NewsController@save"), 'method' => 'POST')) }}
+{{ Form::token() }}
 
 
 
@@ -52,6 +53,7 @@
 @else
 <div>
 {{ Form::open(array('url' => 'register_action')) }}
+{{ Form::token() }}
     <h1 style='max-height:300px'> Welcome to the Registration Form! </h1>
         <p>{{Form::label('firstname','Firstname')}}</p>
         {{$errors->first('firstname', '<p class="alert alter-danger">:message<a class="close" data-dismiss="alert" href="#")>&times;</a></p>')}}

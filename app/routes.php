@@ -10,6 +10,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+// Apply CSRF protection to all state changing requests
+Route::when('*', 'csrf', array('post', 'put', 'patch', 'delete'));
 //alle
 Route::get('/', 'UserController@index');
 Route::post('register_action', function()

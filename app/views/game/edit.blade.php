@@ -1,6 +1,7 @@
 @extends('layout.layout')
 @section('content')
 {{ Form::open(array('url' => action("GameController@game_save", array($game->id)), 'method' => 'POST')) }}
+{{ Form::token() }}
 
 <p>{{ Form::label('week_name', 'Title of the Week') }}</p>
 {{ $errors->first('week_name', '<p class="alert alert-danger">:message<a class="close" data-dismiss="alert" href="#">&times;</a></p>') }}

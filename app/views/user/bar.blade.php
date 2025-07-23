@@ -8,6 +8,7 @@
     </div>
 @else
     {{ Form::open(array('url' => action("UserController@login"), 'method' => 'POST')) }}
+    {{ Form::token() }}
     <div style="float: right;  margin-right: 8em; margin-top: 0.7em">
     <input type="submit" name="login" value=Login class="btn btn-primary"/>
     </div>
