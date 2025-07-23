@@ -1,5 +1,7 @@
 <?php
 
+ini_set('session.cookie_samesite', 'Lax');
+
 /*
 |--------------------------------------------------------------------------
 | Register The Laravel Class Loader
