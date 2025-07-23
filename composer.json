@@ -4,7 +4,7 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+                "laravel/framework": "4.2.22"
 	},
 	"autoload": {
 		"classmap": [
@@ -30,7 +30,13 @@
 		]
 	},
 	"config": {
-		"preferred-install": "dist"
+		"preferred-install": "dist",
+		"allow-plugins": {
+			"kylekatarnls/update-helper": true
+		}
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "stable",
+	"require-dev": {
+		"phpunit/phpunit": "~4.8"
+	}
 }

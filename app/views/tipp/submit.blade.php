@@ -1,6 +1,7 @@
 @extends('layout.layout')
 @section('content')
      {{ Form::open(array('url' => action("TippController@save", array($game->id)),'method' => 'POST')) }}
+     {{ Form::token() }}
 <h1 style='max-height:300px'> {{$game->week_name}} </h1>
 <div class="span11">
     <table class="table table-bordered">

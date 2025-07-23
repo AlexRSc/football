@@ -135,6 +135,19 @@ return array(
 	|
 	*/
 
-	'secure' => false,
+       'secure' => true,
+
+       /*
+       |--------------------------------------------------------------------------
+       | HTTP Access Only
+       |--------------------------------------------------------------------------
+       |
+       | Setting this option to true means the session cookie will only be
+       | accessible through the HTTP protocol. This helps mitigate the risk of
+       | client side script accessing the protected cookie data.
+       |
+       */
+
+       'http_only' => true,
 
 );
